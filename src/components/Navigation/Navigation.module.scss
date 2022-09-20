@@ -1,0 +1,41 @@
+.link {
+  text-decoration: none;
+  color: #000;
+
+  position: relative;
+  overflow: hidden;
+
+  &:not(:last-child) {
+    margin-right: 50px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #fff;
+
+    transform: scaleX(0);
+    transition: transform 200ms linear, color 200ms linear;
+    transform-origin: right;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
+}
+
+.active {
+  color: #fff;
+}
